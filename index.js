@@ -1,12 +1,12 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const userRoute = require('./src/routes/user');
+import express, { json } from 'express';
+import { connect } from 'mongoose';
+import userRoute from './src/routes/user.js';
 
 const app = express();
-app.use(express.json());
+app.use(json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/TestDB', {
+connect('mongodb://localhost:27017/TestDB', {
 });
 
 // Use the user route
