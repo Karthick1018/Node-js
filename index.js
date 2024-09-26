@@ -1,6 +1,10 @@
 import express, { json } from 'express';
 import { connect } from 'mongoose';
-import userRoute from './src/routes/user.js';
+import userRoute from './src/routes/userRoutes.js';
+import empRoute from './src/routes/empRoutes.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 app.use(json());
@@ -11,6 +15,7 @@ connect('mongodb://localhost:27017/TestDB', {
 
 // Use the user route
 app.use('/', userRoute);
+app.use('/', empRoute);
 
 // Start the server
 app.listen(3002, () => {
